@@ -1,0 +1,250 @@
+@import "bootstrap";
+
+// ─── Paleta de colores ───────────────────
+:root {
+    --color-base-00:  #fffdf8;
+    --color-base-05:  #faf3f1;
+    --color-base-10:  #f0e9e4;
+    --color-base-20:  #e7d8d8;
+    --color-base-25:  #d9c9ca;
+    --color-base-30:  #cec2c577;
+    --color-base-35:  #b5a7ac;
+    --color-base-40:  #b6a4b2;
+    --color-base-50:  #a391a3;
+    --color-base-60:  #867786;
+    --color-base-70:  #685a68;
+    --color-base-100: #594f67;
+
+    --color-accent:  #c18bac;
+    --color-red:     #e17884;
+    --color-green:   #75c297;
+    --color-orange:  #f19070;
+    --color-yellow:  #dcb46f;
+    --color-cyan:    #6fd2c2;
+    --color-blue:    #88c6e3;
+    --color-purple:  #b584c7;
+    --color-pink:    #dc76a7;
+
+    --mq-texto-suave: var(--color-base-70);
+    --mq-texto-tenue: var(--color-base-60);
+    --mq-sombra:      rgba(89, 79, 103, 0.15);
+}
+
+// ─── Paleta modo oscuro ──────────────────────────────────
+:root[data-bs-theme="dark"] {
+    --color-base-00:  #3b3347;
+    --color-base-05:  #3e374b; 
+    --color-base-10:  #413b4e;
+    --color-base-20:  #2f2837;
+    --color-base-25:  #55546e;
+    --color-base-30:  #4e4560;
+    --color-base-35:  #545e76;
+    --color-base-40:  #626f86;
+    --color-base-50:  #7d7f95;
+    --color-base-60:  #678194;
+    --color-base-70:  #7f83a1;
+    --color-base-100: #a0a7c4;
+
+    --mq-texto-suave: var(--color-base-100);
+    --mq-texto-tenue: var(--color-base-100);
+    --mq-sombra:      rgba(0, 0, 0, 0.35);
+}
+
+// ─── Variables semánticas ────────────────────────────────
+$mq-fondo:            var(--color-base-00);
+$mq-superficie:       var(--color-base-05);
+$mq-superficie-alt:   var(--color-base-10);
+$mq-borde:            var(--color-base-20);
+$mq-texto:            var(--color-base-100);
+$mq-texto-suave:      var(--mq-texto-suave);
+$mq-texto-tenue:      var(--mq-texto-tenue);
+$mq-acento:           var(--color-accent);
+$mq-separacion-nav:   25px;
+
+// ─── Mixins ──────────────────────────────────────────────
+@mixin lista-horizontal($justify: space-between) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: $justify;
+    gap: $mq-separacion-nav;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+// ─── Base ────────────────────────────────────────────────
+body {
+    --bs-border-color: #{$mq-borde};
+    --bs-body-color: #{$mq-texto};
+    --bs-secondary-color: #{$mq-texto-tenue};
+
+    background-color: $mq-fondo;
+    color: $mq-texto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+        color: $mq-acento;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: $mq-texto;
+}
+
+// ─── Navegación ──────────────────────────────────────────
+header {
+    background-color: $mq-superficie;
+}
+
+.nav-lista {
+    @include lista-horizontal(space-around);
+
+    a {
+        display: inline-flex;
+        align-items: center;
+        color: $mq-texto-suave;
+        font-weight: 500;
+
+        &:hover,
+        &:focus-visible {
+            color: $mq-acento;
+        }
+    }
+}
+
+.nav-generos {
+    @include lista-horizontal(space-evenly);
+
+    li a {
+        display: inline-block;
+        padding: 0.4rem 1.1rem;
+        border-radius: 999px;
+        background-color: $mq-superficie-alt;
+        border: 1px solid $mq-borde;
+        color: $mq-texto-suave;
+        font-size: 0.95rem;
+        transition: all 0.2s ease;
+
+        &:hover,
+        &:focus-visible {
+            background-color: $mq-acento;
+            border-color: $mq-acento;
+            color: var(--color-base-00);
+        }
+    }
+}
+
+.logo {
+    height: 2.5rem;
+    width: auto;
+
+    :root[data-bs-theme="dark"] & {
+        filter: brightness(1.9);
+    }
+}
+
+// Botón de cambio de tema
+.btn-tema {
+    display: inline-flex;
+    align-items: center;
+    padding: 0;
+    background: none;
+    border: 0;
+    font: inherit;
+    font-weight: 500;
+    color: $mq-texto-suave;
+    cursor: pointer;
+    transition: color 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+        color: $mq-acento;
+    }
+}
+
+// ─── Libros ──────────────────────────────────────────────
+.portada {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+}
+
+.libro {
+    width: 10rem;
+    background-color: $mq-superficie;
+    border: 1px solid $mq-borde;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover,
+    &:focus-within {
+        transform: translateY(-4px);
+        box-shadow: 0 0.5rem 1.2rem var(--mq-sombra);
+    }
+}
+
+.libro-continuar {
+    width: 100%;
+    max-width: 540px;
+    background-color: $mq-superficie;
+    border: 1px solid $mq-borde;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover,
+    &:focus-within {
+        transform: translateY(-2px);
+        box-shadow: 0 0.5rem 1.2rem var(--mq-sombra);
+    }
+
+    .card-title {
+        color: $mq-texto;
+    }
+
+    .card-text {
+        color: $mq-texto-suave;
+    }
+
+    .text-body-secondary {
+        color: $mq-acento ;
+        font-weight: 500;
+    }
+}
+
+// ─── Encabezados de sección ──────────────────────────────
+main section h2 {
+    color: $mq-texto;
+    font-weight: 600;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid $mq-borde;
+}
+
+// ─── Pie de página ───────────────────────────────────────
+footer {
+    @include lista-horizontal(space-around);
+    
+    background-color: $mq-superficie-alt;
+
+    .nav-lista a {
+        color: $mq-texto-suave;
+
+        &:hover,
+        &:focus-visible {
+            color: $mq-acento;
+        }
+    }
+
+    p {
+        color: $mq-texto-tenue ;
+    }
+}
