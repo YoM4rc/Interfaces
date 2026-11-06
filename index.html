@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoonQuill</title>
+    <meta name="description" content="MoonQuill: lee, explora y sigue tus historias favoritas.">
+    <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem("theme");
+                if (t !== "dark" && t !== "light") {
+                    t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+                }
+                document.documentElement.setAttribute("data-bs-theme", t);
+            } catch (e) { }
+        })();
+    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.2/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/miestilo.css">
+    <script src="js/tema.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <nav aria-label="Principal">
+            <ul class="nav-lista">
+                <li><a href="#"><img class="logo" src="img/logo.svg" width="40" height="40" alt="Logo de MoonQuill"></a>
+                </li>
+                <li><a href="/explorar"><i class="bi bi-search me-2" aria-hidden="true"></i>Explorar</a></li>
+                <li><a href="/biblioteca"><i class="bi bi-collection me-2" aria-hidden="true"></i>Biblioteca</a></li>
+                <li><a href="/perfil" aria-label="Perfil"><i class="bi bi-person-circle" aria-hidden="true"></i></a>
+                </li>
+                <li>
+                    <button type="button" id="theme-toggle" class="btn-tema" aria-label="Activar modo oscuro"
+                        title="Activar modo oscuro"><i class="bi bi-moon-stars" aria-hidden="true"></i></button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <section id="continua_leyendo" aria-labelledby="continua_leyendo_titulo" class="mb-4 mt-4">
+            <h2 id="continua_leyendo_titulo">Continúa leyendo</h2>
+            <div class="d-flex flex-wrap gap-3">
+                <article class="card libro-continuar">
+                    <div class="row g-0">
+                        <div class="col-4">
+                            <img src="img/na.webp" class="portada rounded-start" width="160" height="240"
+                                alt="Portada del último libro">
+                        </div>
+                        <div class="col-8">
+                            <div class="card-body">
+                                <h3 class="card-title h5">Título</h3>
+                                <p class="card-text">Gravida placerat in vel morbi montes amet blandit. Ridiculus mollis
+                                    leo tincidunt cras pretium amet bibendum morbi nullam massa. Platea orci mollis
+                                    molestie sit nullam accumsan mauris nec netus.</p>
+                                <p class="card-text"><small class="text-body-secondary">Sigue desde aquí</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="card libro-continuar">
+                    <div class="row g-0">
+                        <div class="col-4">
+                            <img src="img/na.webp" class="portada rounded-start" width="160" height="240"
+                                alt="Portada del último libro" loading="lazy">
+                        </div>
+                        <div class="col-8">
+                            <div class="card-body">
+                                <h3 class="card-title h5">Las crónicas de Narnia</h3>
+                                <p class="card-text">Gravida placerat in vel morbi montes amet blandit. Ridiculus mollis
+                                    leo tincidunt cras pretium amet bibendum morbi nullam massa. Platea orci mollis
+                                    molestie sit nullam accumsan mauris nec netus.</p>
+                                <p class="card-text"><small class="text-body-secondary">Sigue desde aquí</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="destacado" aria-labelledby="destacado_titulo" class="mb-4">
+            <h2 id="destacado_titulo">Destacado</h2>
+            <div class="d-flex flex-wrap gap-3">
+                <div class="card libro">
+                    <img src="img/na.webp" class="portada card-img" width="160" height="240" alt="Portada de libro"
+                        loading="lazy">
+                </div>
+                <div class="card libro">
+                    <img src="img/na.webp" class="portada card-img" width="160" height="240" alt="Portada de libro"
+                        loading="lazy">
+                </div>
+                <div class="card libro">
+                    <img src="img/na.webp" class="portada card-img" width="160" height="240" alt="Portada de libro"
+                        loading="lazy">
+                </div>
+                <div class="card libro">
+                    <img src="img/na.webp" class="portada card-img" width="160" height="240" alt="Portada de libro"
+                        loading="lazy">
+                </div>
+                <div class="card libro">
+                    <img src="img/na.webp" class="portada card-img" width="160" height="240" alt="Portada de libro"
+                        loading="lazy">
+                </div>
+                <div class="card libro">
+                    <img src="img/na.webp" class="portada card-img" width="160" height="240" alt="Portada de libro"
+                        loading="lazy">
+                </div>
+                <div class="card libro">
+                    <img src="img/na.webp" class="portada card-img" width="160" height="240" alt="Portada de libro"
+                        loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <section id="tendencias" aria-labelledby="tendencias_titulo" class="mb-4">
+            <h2 id="tendencias_titulo">Tendencias</h2>
+            <div class="d-flex flex-wrap gap-3">
+                <div class="card libro">
+                    <img src="img/na.webp" class="portada card-img" width="160" height="240" alt="Portada de libro"
+                        loading="lazy">
+                </div>
+                <div class="card libro">
+                    <img src="img/na.webp" class="portada card-img" width="160" height="240" alt="Portada de libro"
+                        loading="lazy">
+                </div>
+                <div class="card libro">
+                    <img src="img/na.webp" class="portada card-img" width="160" height="240" alt="Portada de libro"
+                        loading="lazy">
+                </div>
+                <div class="card libro">
+                    <img src="img/na.webp" class="portada card-img" width="160" height="240" alt="Portada de libro"
+                        loading="lazy">
+                </div>
+                <div class="card libro">
+                    <img src="img/na.webp" class="portada card-img" width="160" height="240" alt="Portada de libro"
+                        loading="lazy">
+                </div>
+                <div class="card libro">
+                    <img src="img/na.webp" class="portada card-img" width="160" height="240" alt="Portada de libro"
+                        loading="lazy">
+                </div>
+                <div class="card libro">
+                    <img src="img/na.webp" class="portada card-img" width="160" height="240" alt="Portada de libro"
+                        loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <section id="novedades" aria-labelledby="novedades_titulo" class="mb-4">
+            <h2 id="novedades_titulo">Novedades</h2>
+            <div class="d-flex flex-wrap gap-3">
+                <div class="card libro">
+                    <img src="img/na.webp" class="portada card-img" width="160" height="240" alt="Portada de libro"
+                        loading="lazy">
+                </div>
+                <div class="card libro">
+                    <img src="img/na.webp" class="portada card-img" width="160" height="240" alt="Portada de libro"
+                        loading="lazy">
+                </div>
+                <div class="card libro">
+                    <img src="img/na.webp" class="portada card-img" width="160" height="240" alt="Portada de libro"
+                        loading="lazy">
+                </div>
+                <div class="card libro">
+                    <img src="img/na.webp" class="portada card-img" width="160" height="240" alt="Portada de libro"
+                        loading="lazy">
+                </div>
+                <div class="card libro">
+                    <img src="img/na.webp" class="portada card-img" width="160" height="240" alt="Portada de libro"
+                        loading="lazy">
+                </div>
+                <div class="card libro">
+                    <img src="img/na.webp" class="portada card-img" width="160" height="240" alt="Portada de libro"
+                        loading="lazy">
+                </div>
+                <div class="card libro">
+                    <img src="img/na.webp" class="portada card-img" width="160" height="240" alt="Portada de libro"
+                        loading="lazy">
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p class="mt-3 mb-0">&copy; 2026 MoonQuill</p>
+        <nav aria-label="Pie de página">
+            <ul class="nav-lista">
+                <li><a href="/sobre">Sobre nosotros</a></li>
+                <li><a href="/contacto">Contacto</a></li>
+                <li><a href="/privacidad">Privacidad</a></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+
+</html>
